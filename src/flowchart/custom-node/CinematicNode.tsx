@@ -15,7 +15,7 @@ const CinematicNode = memo<NodeProps<CinematicNode>>(
           isConnectable={isConnectable}
         />
         <div>[{category}]</div>
-        <div>시네마틱: {context}</div>
+        <div>Cinematic: {context}</div>
         <Handle
           type="source"
           position={Position.Right}

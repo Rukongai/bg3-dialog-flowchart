@@ -24,7 +24,6 @@
     "paths": {
       "@/*": ["*"],
       "@gustav/*": ["gustav/*"],
-      "@weblate/*": ["weblate/*"]
     }
   },
   "include": ["src"],

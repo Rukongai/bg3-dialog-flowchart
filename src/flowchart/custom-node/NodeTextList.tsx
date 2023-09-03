@@ -1,7 +1,6 @@
 import { Divider, VStack } from "@chakra-ui/react";
 import { Node, LocalizedString } from "@gustav/types";
 import { stringifyRuleGroup } from "@gustav/utils";
-import { useWeblate } from "@weblate/useWeblate";
 import { Fragment } from "react";
 
 interface NodeTextListProps {
@@ -34,7 +33,7 @@ export const NodeTextList: React.FC<NodeTextListProps> = ({ nodeData }) => {
           </Fragment>
         );
       })}
-      {isEndNode && <div>{"<대화 종료>"}</div>}
+      {isEndNode && <div>{"<End Conversation>"}</div>}
     </VStack>
   );
 };
@@ -46,15 +45,12 @@ interface NodeTextProps {
 export const NodeText: React.FC<NodeTextProps> = ({
   LocalizedString: LocalizedString,
 }) => {
-  const { getTranslatedText } = useWeblate();
 
   const sourceText = LocalizedString.Value;
-  const targetText = getTranslatedText(LocalizedString);
 
   return (
     <div>
       <div>{sourceText}</div>
-      {targetText && <div>{targetText}</div>}
     </div>
   );
 };

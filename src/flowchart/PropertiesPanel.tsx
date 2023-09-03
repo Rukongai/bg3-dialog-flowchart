@@ -1,9 +1,8 @@
 import { stringifyRuleGroup } from "@/gustav/utils";
-import { CopyIcon, ExternalLinkIcon, PhoneIcon } from "@chakra-ui/icons";
-import { Center, Divider, HStack, Link, Text, VStack } from "@chakra-ui/react";
+import { CopyIcon, PhoneIcon } from "@chakra-ui/icons";
+import { Center, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 import type * as Gustav from "@gustav/types";
 import { useAudio } from "@gustav/useAudio";
-import { useWeblate } from "@weblate/useWeblate";
 import { useRef, useState } from "react";
 import { useOnSelectionChange } from "reactflow";
 import { useNodeData } from "./useNodeData";
@@ -53,7 +52,7 @@ function PropertiesPanel() {
           UUID
         </Text>
         <span>{data.UUID}</span>
-        {data.EndNode && <div>{"<대화 종료>"}</div>}
+        {data.EndNode && <div>{"<End Conversation>"}</div>}
       </div>
       {rollAdvantageReason && (
         <RollAdvantageProperties
@@ -156,15 +155,11 @@ const NodeText: React.FC<{
   speakerName?: string;
   LocalizedString: Gustav.LocalizedString;
 }> = ({ speakerName, LocalizedString }) => {
-  const { getTranslatedText, getWeblateUrl } = useWeblate();
   const sourceText = LocalizedString.Value;
   const handle = LocalizedString.Handle;
 
   const { isReady, audioProps } = useAudio(handle);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  const url = getWeblateUrl(LocalizedString);
-  const targetText = getTranslatedText(LocalizedString);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`${speakerName}: ${sourceText}`);
@@ -173,13 +168,7 @@ const NodeText: React.FC<{
   return (
     <div>
       <div>{sourceText}</div>
-      {targetText && <div>{targetText}</div>}
       <HStack>
-        {url && (
-          <Link href={url} target="weblate">
-            Weblate <ExternalLinkIcon mx="2px" />
-          </Link>
-        )}
         {speakerName && (
           <Text cursor="pointer" onClick={handleCopy}>
             Copy <CopyIcon mx="2px" />

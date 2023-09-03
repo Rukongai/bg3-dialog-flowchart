@@ -4,7 +4,7 @@ import { Edge, Node, Position } from "reactflow";
 import type * as Gustav from "@gustav/types";
 import { getNodesPathThrough, parsePosition } from "@gustav/utils";
 import { useWorkspace } from "./useWorkspace";
-import { useWeblate } from "@/weblate/useWeblate";
+// import { useWeblate } from "@/weblate/useWeblate";
 import { clsx } from "clsx";
 
 type NodeDataProviderProps = {
@@ -15,7 +15,6 @@ type NodeDataProviderProps = {
 function getNodeFromGustav(
   gustavNode: Gustav.Node,
   gustavNodes: Gustav.DialogData["Nodes"],
-  isTranslated: boolean,
   isPinned: boolean
 ): Node {
   const { x, y } = parsePosition(gustavNode.EditorData.position);
@@ -38,7 +37,6 @@ function getNodeFromGustav(
     targetPosition: Position.Left,
     className: clsx(
       "react-flow__node-default",
-      !isTranslated ? "react-flow__node-untranslated" : undefined,
       isPinned ? "react-flow__node-pinned" : undefined
     ),
     style: {
@@ -79,7 +77,7 @@ function getEdgesFromGustav(
 function useNodeDataState(dialogData: Gustav.DialogData) {
   const { highlightUntranslated, displayJumpEdge, pinnedIdSet } =
     useWorkspace();
-  const { checkNodeTranslated } = useWeblate();
+  // const { checkNodeTranslated } = useWeblate();
 
   // Node Data
   const rootNodes = useMemo(
@@ -101,14 +99,12 @@ function useNodeDataState(dialogData: Gustav.DialogData) {
         getNodeFromGustav(
           node,
           dialogData.Nodes,
-          highlightUntranslated ? checkNodeTranslated(node) : true,
           pinnedIdSet.has(node.UUID)
         )
       ),
     [
       nodesToRender,
       dialogData.Nodes,
-      checkNodeTranslated,
       highlightUntranslated,
       pinnedIdSet,
     ]

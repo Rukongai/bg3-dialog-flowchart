@@ -13,7 +13,7 @@ const JumpNode = memo<NodeProps<JumpNode>>(({ data, isConnectable }) => {
         isConnectable={isConnectable}
       />
       <div>[{category}]</div>
-      <div>클릭해서 점프</div>
+      <div>Click to Jump</div>
       <Handle
         type="source"
         position={Position.Right}

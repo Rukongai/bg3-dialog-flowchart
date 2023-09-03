@@ -10,7 +10,7 @@ const AliasNode = memo<NodeProps<Node>>(({ isConnectable }) => {
         position={Position.Left}
         isConnectable={isConnectable}
       />
-      <div>Error: AliasNode를 직접 접근</div>
+      <div>Error: AliasNode - Direct Access</div>
       <Handle
         type="source"
         position={Position.Right}

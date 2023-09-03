@@ -4,7 +4,7 @@ import { DialogData } from "./types";
 const DIALOG_URL = "https://waldo.team/bg3_dialog/";
 // const DIALOG_URL = "http://localhost:8080/";
 const DEFAULT_PATH =
-  "Mods/Gustav/Story/Dialogs/Act1/Chapel/CHA_Crypt_Jergal.json";
+  "Mods/GustavDev/Story/Dialogs/Companions/Minthara_InParty_Nested_IPRDs.json";
 
 type GustavProviderProps = {
   children: React.ReactNode;
