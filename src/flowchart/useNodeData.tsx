@@ -4,7 +4,6 @@ import { Edge, Node, Position } from "reactflow";
 import type * as Gustav from "@gustav/types";
 import { getNodesPathThrough, parsePosition } from "@gustav/utils";
 import { useWorkspace } from "./useWorkspace";
-// import { useWeblate } from "@/weblate/useWeblate";
 import { clsx } from "clsx";
 
 type NodeDataProviderProps = {

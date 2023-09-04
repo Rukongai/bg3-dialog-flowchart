@@ -55,6 +55,22 @@ export interface TaggedText {
   TagTexts: TagText[];
 }
 
+export interface GameData {
+  // AiPersonalities: [{}];
+  // CameraTarget: -1 | 0 | 1 ;
+  CustomMovie: string;
+  // ExtraWaitTime: BigInteger;
+  // MusicInstrumentSounds: [{}];
+  // OriginSound: [{}];
+  SoundEvent: string;
+  }
+
+export interface Tags {
+  HasTagRule: boolean;
+  RuleGroup: RuleGroup;
+  TagTexts: TagText[];
+}
+
 export interface Flag {
   UUID: string;
   paramval: 0 | 1;
@@ -69,6 +85,19 @@ export interface FlagGroup {
 
 export interface BaseNode {
   UUID: string;
+  AllowNodeGrouping: boolean;
+  GameData: GameData[];
+  Greeting: boolean;
+  GroupId: string;
+  GroupIndex: -1 | 0 | 1;
+  Tags: Tags[];
+  Exclusive: boolean;
+  Gameplaynode: boolean;
+  Optional: boolean;
+  Speaker: -666 | -1 | 0 | 1;
+  Stub: boolean;
+  SuppressSubtitle: boolean;
+  TransitionMode: 0 | 1;
   Constructor: string;
   EndNode: boolean;
   Root: boolean;
@@ -181,4 +210,15 @@ export interface DialogData {
   RootNodes: string[];
   Nodes: Record<string, Node>;
   SpeakerDict: Record<string, Speaker>;
+  AllowDeadSpeakers: boolean;
+  DefaultAddressedSpeakers: boolean;
+  DefaultSpeakerIndex: boolean;
+  IsAllowingJoinCombat: boolean;
+  IsBehaviour: boolean;
+  IsPrivateDialog: boolean;
+  IsSubbedDialog: boolean;
+  IsWorld: boolean;
+  TimelineId: string;
+  automated: boolean;
+  issfxdialog: boolean;
 }

@@ -89,6 +89,21 @@ function parenthizeIfNeeded(str: string) {
   return parenthize(str);
 }
 
+// function italicize(str: string) {
+//   return `(${str})`;
+// }
+
+// function italicizeIfNeeded(str: string) {
+//   if (str.startsWith("<i>") && str.endsWith("</i>")) {
+//     return str;
+//   }
+//   if (str.startsWith("<i>")) {
+//     return str;
+//   }
+//   return italicize(str);
+// }
+
+
 function combine(arr: string[], op: 0 | 1 | 2) {
   if (op === 0) {
     return arr.join(" & ");
