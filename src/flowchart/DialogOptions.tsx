@@ -39,48 +39,48 @@ function DialogOptions() {
       <div>
         <HStack>
           <Text fontSize="xs" fontWeight="semibold">Category</Text>
-          <Text fontSize="xs">{DialogProperties?.category?.value}</Text>
+          <Text fontSize="xs">{DialogProperties?.category?.value ?? "-"}</Text>
         </HStack>
         <HStack>
           <Text fontSize="xs" fontWeight="semibold">UUID: </Text>
-          <Text fontSize="xs">{DialogProperties?.UUID?.value}</Text>
+          <Text fontSize="xs">{DialogProperties?.UUID?.value ?? "-"}</Text>
         </HStack>
         <HStack>
           <Text fontSize="xs" fontWeight="semibold"> TimelineId: </Text>
-          <Text fontSize="xs">{DialogProperties?.TimelineId?.value}</Text>
+          <Text fontSize="xs">{DialogProperties?.TimelineId?.value ?? "-"}</Text>
         </HStack>
       </div>
       <div>
         <Text fontSize="xs" fontWeight="semibold">
-          AllowDeadSpeakers: <span>{DialogProperties?.AllowDeadSpeakers?.value.toString()}</span>
+          AllowDeadSpeakers: <span>{DialogProperties?.AllowDeadSpeakers?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          DefaultSpeakerIndex: <span>{DialogProperties?.DefaultSpeakerIndex?.value}</span>
+          DefaultSpeakerIndex: <span>{DialogProperties?.DefaultSpeakerIndex?.value ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          IsAllowingJoinCombat: <span>{DialogProperties?.IsAllowingJoinCombat?.value.toString()}</span>
+          IsAllowingJoinCombat: <span>{DialogProperties?.IsAllowingJoinCombat?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          IsBehaviour: <span>{DialogProperties?.IsBehaviour?.value.toString()}</span>
+          IsBehaviour: <span>{DialogProperties?.IsBehaviour?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          IsPrivateDialog: <span>{DialogProperties?.IsPrivateDialog?.value.toString()}</span>
+          IsPrivateDialog: <span>{DialogProperties?.IsPrivateDialog?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          IsSubbedDialog: <span>{DialogProperties?.IsSubbedDialog?.value.toString()}</span>
+          IsSubbedDialog: <span>{DialogProperties?.IsSubbedDialog?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          IsWorld: <span>{DialogProperties?.IsWorld?.value.toString()}</span>
+          IsWorld: <span>{DialogProperties?.IsWorld?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          Automated: <span>{DialogProperties?.automated?.value.toString()}</span>
+          Automated: <span>{DialogProperties?.automated?.value.toString() ?? "-"}</span>
         </Text>
         <Text fontSize="xs" fontWeight="semibold">
-          issfxdialog: <span>{DialogProperties?.issfxdialog?.value.toString()}</span>
+          issfxdialog: <span>{DialogProperties?.issfxdialog?.value.toString() ?? "-"}</span>
         </Text>
         <Divider />
         <Text fontSize="xs" fontWeight="semibold"> Synopsis: </Text>
-        <Text fontSize="xs">{EditorData?.synopsis.value}</Text>
+        <Text fontSize="xs">{EditorData?.synopsis.value} ?? "-"</Text>
       </div>
       <div>
         <Text fontSize="xs" fontWeight="semibold">
