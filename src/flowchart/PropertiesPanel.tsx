@@ -1,6 +1,6 @@
 import { stringifyRuleGroup } from "@/gustav/utils";
 import { CopyIcon, PhoneIcon } from "@chakra-ui/icons";
-import { Center, Divider, HStack, Text, VStack } from "@chakra-ui/react";
+import { Center, Divider, HStack, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 import type * as Gustav from "@gustav/types";
 import { useAudio } from "@gustav/useAudio";
 import { useRef, useState } from "react";
@@ -111,7 +111,7 @@ const FlagProperties: React.FC<{
           {flagGroup.Flags.map((flag) => (
             <div key={flag.UUID}>
               <div>
-                {flag.Name}={String(flag.value)}
+                {flag.Name}<Text color={flag.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}> {String(flag.value)}</Text>
               </div>
             </div>
           ))}
