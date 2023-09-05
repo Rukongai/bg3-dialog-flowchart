@@ -23,7 +23,7 @@ function PropertiesPanel() {
         borderLeft={1}
         borderStyle="solid"
         borderColor="gray.600"
-        width="480px"
+        width="540px"
         padding={4}
       >
         Select a node to see its properties.

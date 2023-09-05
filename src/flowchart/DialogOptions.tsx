@@ -1,21 +1,12 @@
 import { HStack, Divider, Text, VStack } from "@chakra-ui/react";
 import { useWorkspace } from "./useWorkspace";
-// import type * as Gustav from "@gustav/testtypes";
-// import { useRef, useState } from "react";
-// import { useOnSelectionChange } from "reactflow";
 
 function DialogOptions() {
   const jsonRoot = useWorkspace();
   const DialogProperties = jsonRoot.documentRoot?.save.regions.dialog
   const EditorData = jsonRoot.documentRoot?.save.regions.editorData
 
-  // DialogProperties
-  //   && Object.keys(DialogProperties).length === 0 && DialogProperties.constructor === Object;
-  // EditorData
-  //   && Object.keys(EditorData).length === 0 && EditorData.constructor === Object;
-
-
-
+  
   return (
     <VStack
       alignItems="stretch"
@@ -32,7 +23,7 @@ function DialogOptions() {
     >
       <div>
         <Text fontSize="m" fontWeight="semibold">
-          Dialog File Options
+          Dialog File Properties
         </Text>
           <span></span>
       </div>
@@ -51,78 +42,50 @@ function DialogOptions() {
         </HStack>
       </div>
       <div>
-        <Text fontSize="xs" fontWeight="semibold">
-          AllowDeadSpeakers: <span>{DialogProperties?.AllowDeadSpeakers?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          DefaultSpeakerIndex: <span>{DialogProperties?.DefaultSpeakerIndex?.value ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          IsAllowingJoinCombat: <span>{DialogProperties?.IsAllowingJoinCombat?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          IsBehaviour: <span>{DialogProperties?.IsBehaviour?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          IsPrivateDialog: <span>{DialogProperties?.IsPrivateDialog?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          IsSubbedDialog: <span>{DialogProperties?.IsSubbedDialog?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          IsWorld: <span>{DialogProperties?.IsWorld?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          Automated: <span>{DialogProperties?.automated?.value.toString() ?? "-"}</span>
-        </Text>
-        <Text fontSize="xs" fontWeight="semibold">
-          issfxdialog: <span>{DialogProperties?.issfxdialog?.value.toString() ?? "-"}</span>
-        </Text>
-        <Divider />
-        <Text fontSize="xs" fontWeight="semibold"> Synopsis: </Text>
-        <Text fontSize="xs">{EditorData?.synopsis.value} ?? "-"</Text>
-      </div>
-      <div>
-        <Text fontSize="xs" fontWeight="semibold">
-
-        </Text>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">AllowDeadSpeakers: </Text>
+          <Text fontSize="xs" color={DialogProperties?.AllowDeadSpeakers?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.AllowDeadSpeakers?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">DefaultSpeakerIndex: </Text>
+          <Text fontSize="xs" color={DialogProperties?.DefaultSpeakerIndex?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.DefaultSpeakerIndex?.value ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">IsAllowingJoinCombat: </Text>
+          <Text fontSize="xs" color={DialogProperties?.IsAllowingJoinCombat?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.IsAllowingJoinCombat?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">IsBehaviour: </Text>
+          <Text fontSize="xs" color={DialogProperties?.IsBehaviour?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.IsBehaviour?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">IsPrivateDialog: </Text>
+          <Text fontSize="xs" color={DialogProperties?.IsPrivateDialog?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.IsPrivateDialog?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">IsSubbedDialog: </Text>
+          <Text fontSize="xs" color={DialogProperties?.IsSubbedDialog?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.IsSubbedDialog?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">IsWorld: </Text>
+          <Text fontSize="xs" color={DialogProperties?.IsWorld?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.IsWorld?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">Automated: </Text>
+          <Text fontSize="xs" color={DialogProperties?.automated?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.automated?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <HStack>
+          <Text fontSize="xs" fontWeight="semibold">issfxdialog: </Text>
+          <Text fontSize="xs" color={DialogProperties?.issfxdialog?.value ? "rgb(173, 219, 103)": "rgb(255, 88, 116)"}><span>{DialogProperties?.issfxdialog?.value.toString() ?? "-"}</span></Text>
+        </HStack>
+        <Divider borderWidth={2} />
+        <VStack>
+          <Text fontSize="xs" fontWeight="semibold"> Synopsis: </Text>
+          <Text fontSize="xs">{EditorData?.synopsis.value ?? "-"}</Text>
+        </VStack>
       </div>
     </VStack>
   );
 }
-// const DialogProperties: React.FC<{
-//   speakerName: string;
-//   TaggedTextList: Gustav.TaggedText[];
-// }> = ({ speakerName, TaggedTextList }) => {
-//   return (
-//     <div>
-//       <VStack divider={<Divider />} alignItems="flex-start">
-//         <div>
-//           <Text fontSize="xs" fontWeight="semibold">
-//             TEXTS
-//           </Text>
-//           <div>Speaker: {speakerName}</div>
-//         </div>
-//         {TaggedTextList.map((TaggedText, i) => {
-//           const hasRule =
-//             TaggedText.RuleGroup.Rules.flatMap((rule) => rule.TagNames).length >
-//             0;
-//           return (
-//             <VStack alignItems="flex-start" key={i}>
-//               {hasRule && <div>{stringifyRuleGroup(TaggedText.RuleGroup)}</div>}
-//               {TaggedText.TagTexts.map((TagText) => (
-//                 <NodeText
-//                   key={TagText.LineId}
-//                   speakerName={speakerName}
-//                   LocalizedString={TagText.Text}
-//                 />
-//               ))}
-//             </VStack>
-//           );
-//         })}
-//       </VStack>
-//     </div>
-//   );
-// };
 
 export default DialogOptions;
