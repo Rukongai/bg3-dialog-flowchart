@@ -96,14 +96,14 @@ const RollAdvantageProperties: React.FC<{
     </div>
   );
 };
-
+//Text color = "rgb(130, 170, 255)
 const FlagProperties: React.FC<{
   title: string;
   FlagList: Gustav.FlagGroup[];
 }> = ({ title, FlagList }) => {
   return (
     <div>
-      <Text fontSize="xs" fontWeight="semibold">
+      <Text fontSize="xs" fontWeight="semibold" color={title === "SET FLAGS" ? "rgb(130, 170, 255)": "rgb(127, 219, 202)"}>
         {title}
       </Text>
       {FlagList.map((flagGroup, i) => (
