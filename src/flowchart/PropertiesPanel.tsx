@@ -10,6 +10,7 @@ import { useNodeData } from "./useNodeData";
 function PropertiesPanel() {
   const [data, setData] = useState<Gustav.Node>();
   const { getSpeakerName } = useNodeData();
+  // const [testData, setTestData] = useState<Gustav.Node>
 
   useOnSelectionChange({
     onChange(selection) {
