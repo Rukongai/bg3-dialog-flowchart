@@ -10,7 +10,6 @@ import { useNodeData } from "./useNodeData";
 function PropertiesPanel() {
   const [data, setData] = useState<Gustav.Node>();
   const { getSpeakerName } = useNodeData();
-  // const [testData, setTestData] = useState<Gustav.Node>
 
   useOnSelectionChange({
     onChange(selection) {
@@ -33,6 +32,7 @@ function PropertiesPanel() {
 
   const speakerName = getSpeakerName(data.SpeakerNo);
   const rollAdvantageReason = (data as Gustav.RollNode).RollAdvantageReason;
+  
 
   return (
     <VStack
@@ -42,10 +42,10 @@ function PropertiesPanel() {
       borderColor="gray.600"
       width="480px"
       maxHeight="calc(100vh - 120px)"
-      wordBreak="break-word"
       padding={4}
-      overflowX="hidden"
-      overflowY="auto"
+      textOverflow="fade"
+      // overflowX="hidden"
+      // overflowY="auto"
       divider={<Divider borderWidth={2} />}
     >
       <div>
