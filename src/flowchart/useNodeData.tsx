@@ -2,6 +2,7 @@ import * as React from "react";
 import { useCallback, useMemo } from "react";
 import { Edge, Node, Position } from "reactflow";
 import type * as Gustav from "@gustav/types";
+import type * as GustavTest from "@gustav/testtypes";
 import { getNodesPathThrough, parsePosition } from "@gustav/utils";
 import { useWorkspace } from "./useWorkspace";
 import { clsx } from "clsx";

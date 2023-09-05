@@ -9,6 +9,7 @@ type WorkspaceProviderProps = {
 function useWorkspaceState() {
   const { path } = useGustav();
   const { dialogData } = useGustav();
+  const { documentRoot } = useGustav();
   const [rootId, setRootId] = useState<string>();
   const [pinnedIdSet, setPinnedIdSet] = useState<Set<string>>(new Set());
   const [selectedId, setSelectedId] = useState<string>();
@@ -48,6 +49,7 @@ function useWorkspaceState() {
     displayJumpEdge,
     setDisplayJumpEdge,
     dialogData,
+    documentRoot,
   };
 }
 

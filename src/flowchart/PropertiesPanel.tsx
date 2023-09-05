@@ -77,20 +77,6 @@ function PropertiesPanel() {
           EditorData
         </Text>
       </div>
-      <div>
-        <Text fontSize="xs" fontWeight="semibold">
-          Node Settings
-        </Text>
-        <span>{data.Exclusive}</span>
-        {data.EndNode && <div>{"<End Conversation>"}</div>}
-      </div>
-      <div>
-        <Text fontSize="xs" fontWeight="semibold">
-          TemplateUUID
-        </Text>
-        <span>{data.EditorData.TemplateNodeUUID}</span>
-        {data.EndNode && <div>{"<End Conversation>"}</div>}
-      </div>
     </VStack>
   );
 }

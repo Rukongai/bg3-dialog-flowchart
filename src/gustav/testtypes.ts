@@ -1,4 +1,4 @@
-interface EditorData {
+interface NodeEditorData {
   ID: string;
   TemplateNodeUUID: string;
   TemplateVersion: string;
@@ -44,6 +44,21 @@ export interface LocalizedString {
   Value: string;
 }
 
+export interface Value {
+  type: string;
+  value: string;
+}
+
+export interface bool {
+  type: string;
+  value: boolean;
+}
+
+export interface LSString {
+  type: string;
+  value: string;
+}
+
 export interface TagText {
   LineId: string;
   Text: LocalizedString;
@@ -79,7 +94,7 @@ export interface BaseNode {
   CheckFlags: FlagGroup[];
   SetFlags: FlagGroup[];
   TaggedTextList: TaggedText[];
-  EditorData: EditorData;
+  EditorData: NodeEditorData;
 }
 
 export interface AnswerNode extends BaseNode {
@@ -174,11 +189,51 @@ export interface Speaker {
   SpeakerGroupName: string | null;
 }
 
-export interface DialogData {
-  Path: string;
-  UUID: string;
-  Category: string;
+export interface DocumentRoot {
+  save: save;
+}
+
+export interface save {
+  regions: regions;
+  header: header;
+}
+
+export interface header {
+  version: string;
+}
+
+export interface regions {
+  dialog: DialogOptionsData;
+  editorData: EditorData;
+}
+
+export interface EditorData {
+  HowToTrigger: Value;
+  defaultAttitudes: Value;
+  defaultEmotions: Value;
+  isImportantForStagings: bool;
+  isPeanuts: Value;
+  needLayout: Value;
+  nextNodeId: Value;
+  speakerSlotDescription: Value;
+  synopsis: Value;
+}
+
+export interface DialogOptionsData {
+  UUID?: Value;
+  category?: Value;
   RootNodes: string[];
   Nodes: Record<string, Node>;
-  SpeakerDict: Record<string, Speaker>;
+  SpeakerDict?: Record<string, Speaker>;
+  AllowDeadSpeakers?: bool;
+  DefaultAddressedSpeakers?: Value;
+  DefaultSpeakerIndex?: Value;
+  IsAllowingJoinCombat?: bool;
+  IsBehaviour?: bool;
+  IsPrivateDialog?: bool;
+  IsSubbedDialog?: bool;
+  IsWorld?: bool;
+  TimelineId?: Value;
+  automated?: bool;
+  issfxdialog?: bool;
 }

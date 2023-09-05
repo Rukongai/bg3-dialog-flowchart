@@ -1,0 +1,968 @@
+{
+  "definitions": {
+    "Welcome4": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "save": {
+          "$ref": "#/definitions/Save"
+        }
+      },
+      "required": [
+        "save"
+      ],
+      "title": "Welcome4"
+    },
+    "Save": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/Header"
+        },
+        "regions": {
+          "$ref": "#/definitions/Regions"
+        }
+      },
+      "required": [
+        "header",
+        "regions"
+      ],
+      "title": "Save"
+    },
+    "Header": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version"
+      ],
+      "title": "Header"
+    },
+    "Regions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dialog": {
+          "$ref": "#/definitions/Dialog"
+        },
+        "editorData": {
+          "$ref": "#/definitions/EditorData"
+        }
+      },
+      "required": [
+        "dialog",
+        "editorData"
+      ],
+      "title": "Regions"
+    },
+    "Dialog": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AllowDeadSpeakers": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "DefaultAddressedSpeakers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAddressedSpeaker"
+          }
+        },
+        "TimelineId": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "UUID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "category": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DialogNode"
+          }
+        },
+        "speakerlist": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Speakerlist"
+          }
+        }
+      },
+      "required": [
+        "AllowDeadSpeakers",
+        "DefaultAddressedSpeakers",
+        "TimelineId",
+        "UUID",
+        "category",
+        "nodes",
+        "speakerlist"
+      ],
+      "title": "Dialog"
+    },
+    "AllowDeadSpeakers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/AllowDeadSpeakersType"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "AllowDeadSpeakers"
+    },
+    "DefaultAddressedSpeaker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Object": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Object"
+          }
+        }
+      },
+      "required": [
+        "Object"
+      ],
+      "title": "DefaultAddressedSpeaker"
+    },
+    "Object": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MapKey": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "MapValue": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "MapKey",
+        "MapValue"
+      ],
+      "title": "Object"
+    },
+    "NextNodeID": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/NextNodeIDType"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "NextNodeID"
+    },
+    "TimelineID": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/TimelineIDType"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "TimelineID"
+    },
+    "DialogNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RootNodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RootNode"
+          }
+        },
+        "node": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NodeNode"
+          }
+        }
+      },
+      "required": [
+        "RootNodes",
+        "node"
+      ],
+      "title": "DialogNode"
+    },
+    "RootNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RootNodes": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "RootNodes"
+      ],
+      "title": "RootNode"
+    },
+    "NodeNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerSlotDescription"
+          }
+        },
+        "UUID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "checkflags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CheckflagElement"
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NodeChild"
+          }
+        },
+        "constructor": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "editorData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "jumptarget": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "jumptargetpoint": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "setflags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CheckflagElement"
+          }
+        },
+        "GameData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GameDatum"
+          }
+        },
+        "TaggedTexts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NodeTaggedText"
+          }
+        },
+        "speaker": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "transitionmode": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "ShowOnce": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "ValidatedFlags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatedFlag"
+          }
+        },
+        "GroupID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "GroupIndex": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "endnode": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "Root": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "NestedDialogNodeUUID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "SpeakerLinking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerLinking"
+          }
+        },
+        "Greeting": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "SourceNode": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "ApprovalRatingID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "optional": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "PopLevel": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "Tags",
+        "UUID",
+        "checkflags",
+        "children",
+        "constructor",
+        "editorData",
+        "setflags"
+      ],
+      "title": "NodeNode"
+    },
+    "GameDatum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AiPersonalities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GameDatumAIPersonality"
+          }
+        },
+        "MusicInstrumentSounds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerSlotDescription"
+          }
+        },
+        "OriginSound": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerSlotDescription"
+          }
+        }
+      },
+      "required": [
+        "AiPersonalities",
+        "MusicInstrumentSounds",
+        "OriginSound"
+      ],
+      "title": "GameDatum"
+    },
+    "GameDatumAIPersonality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AiPersonality": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AIPersonalityAIPersonality"
+          }
+        }
+      },
+      "required": [],
+      "title": "GameDatumAIPersonality"
+    },
+    "AIPersonalityAIPersonality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AiPersonality": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "AiPersonality"
+      ],
+      "title": "AIPersonalityAIPersonality"
+    },
+    "SpeakerSlotDescription": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "SpeakerSlotDescription"
+    },
+    "SpeakerLinking": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SpeakerLinkingEntry": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerLinkingEntry"
+          }
+        }
+      },
+      "required": [
+        "SpeakerLinkingEntry"
+      ],
+      "title": "SpeakerLinking"
+    },
+    "SpeakerLinkingEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "Value": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "title": "SpeakerLinkingEntry"
+    },
+    "NodeTaggedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "TaggedText": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaggedTextTaggedText"
+          }
+        }
+      },
+      "required": [],
+      "title": "NodeTaggedText"
+    },
+    "TaggedTextTaggedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "HasTagRule": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "RuleGroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleGroup"
+          }
+        },
+        "TagTexts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaggedTextTagText"
+          }
+        }
+      },
+      "required": [
+        "HasTagRule",
+        "RuleGroup",
+        "TagTexts"
+      ],
+      "title": "TaggedTextTaggedText"
+    },
+    "RuleGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleGroupRule"
+          }
+        },
+        "TagCombineOp": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "Rules",
+        "TagCombineOp"
+      ],
+      "title": "RuleGroup"
+    },
+    "RuleGroupRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Rule": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleRule"
+          }
+        }
+      },
+      "required": [],
+      "title": "RuleGroupRule"
+    },
+    "RuleRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "HasChildRules": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "TagCombineOp": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleTag"
+          }
+        },
+        "speaker": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "HasChildRules",
+        "TagCombineOp",
+        "Tags",
+        "speaker"
+      ],
+      "title": "RuleRule"
+    },
+    "RuleTag": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Tag": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagTag"
+          }
+        }
+      },
+      "required": [
+        "Tag"
+      ],
+      "title": "RuleTag"
+    },
+    "TagTag": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Object": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "Object"
+      ],
+      "title": "TagTag"
+    },
+    "TaggedTextTagText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "TagText": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagTextTagText"
+          }
+        }
+      },
+      "required": [
+        "TagText"
+      ],
+      "title": "TaggedTextTagText"
+    },
+    "TagTextTagText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LineId": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "TagText": {
+          "$ref": "#/definitions/Text"
+        },
+        "stub": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "OldText": {
+          "$ref": "#/definitions/Text"
+        }
+      },
+      "required": [
+        "LineId",
+        "TagText",
+        "stub"
+      ],
+      "title": "TagTextTagText"
+    },
+    "Text": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "handle": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/OldTextType"
+        },
+        "version": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "handle",
+        "type",
+        "version"
+      ],
+      "title": "Text"
+    },
+    "ValidatedFlag": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ValidatedHasValue": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        }
+      },
+      "required": [
+        "ValidatedHasValue"
+      ],
+      "title": "ValidatedFlag"
+    },
+    "CheckflagElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flaggroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Flaggroup"
+          }
+        }
+      },
+      "required": [],
+      "title": "CheckflagElement"
+    },
+    "Flaggroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flag": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FlagElement"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "flag",
+        "type"
+      ],
+      "title": "Flaggroup"
+    },
+    "FlagElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "UUID": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "value": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "paramval": {
+          "$ref": "#/definitions/NextNodeID"
+        }
+      },
+      "required": [
+        "UUID",
+        "value"
+      ],
+      "title": "FlagElement"
+    },
+    "NodeChild": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChildChild"
+          }
+        }
+      },
+      "required": [],
+      "title": "NodeChild"
+    },
+    "ChildChild": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "UUID": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "UUID"
+      ],
+      "title": "ChildChild"
+    },
+    "DefaultAttitude": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "title": "DefaultAttitude"
+    },
+    "Datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "val": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "key",
+        "val"
+      ],
+      "title": "Datum"
+    },
+    "Speakerlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "speaker": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Speaker"
+          }
+        }
+      },
+      "required": [
+        "speaker"
+      ],
+      "title": "Speakerlist"
+    },
+    "Speaker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SpeakerMappingId": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "index": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "list": {
+          "$ref": "#/definitions/TimelineID"
+        }
+      },
+      "required": [
+        "SpeakerMappingId",
+        "index"
+      ],
+      "title": "Speaker"
+    },
+    "EditorData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "HowToTrigger": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "defaultAttitudes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "defaultEmotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "isImportantForStagings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "isPeanuts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "needLayout": {
+          "$ref": "#/definitions/AllowDeadSpeakers"
+        },
+        "nextNodeId": {
+          "$ref": "#/definitions/NextNodeID"
+        },
+        "speakerSlotDescription": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeakerSlotDescription"
+          }
+        },
+        "synopsis": {
+          "$ref": "#/definitions/TimelineID"
+        },
+        "templateInstances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EditorDataTemplateInstance"
+          }
+        }
+      },
+      "required": [
+        "HowToTrigger",
+        "defaultAttitudes",
+        "defaultEmotions",
+        "isImportantForStagings",
+        "isPeanuts",
+        "needLayout",
+        "nextNodeId",
+        "speakerSlotDescription",
+        "synopsis",
+        "templateInstances"
+      ],
+      "title": "EditorData"
+    },
+    "EditorDataTemplateInstance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "templateInstance": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateInstanceTemplateInstance"
+          }
+        }
+      },
+      "required": [
+        "templateInstance"
+      ],
+      "title": "EditorDataTemplateInstance"
+    },
+    "TemplateInstanceTemplateInstance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        },
+        "flagParameterMappings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FlagParameterMapping"
+          }
+        },
+        "speakerLinking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        },
+        "speakerlist": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Speakerlist"
+          }
+        }
+      },
+      "required": [
+        "data",
+        "flagParameterMappings",
+        "speakerLinking",
+        "speakerlist"
+      ],
+      "title": "TemplateInstanceTemplateInstance"
+    },
+    "FlagParameterMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flagParameterMapping": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DefaultAttitude"
+          }
+        }
+      },
+      "required": [],
+      "title": "FlagParameterMapping"
+    },
+    "AllowDeadSpeakersType": {
+      "type": "string",
+      "enum": [
+        "bool"
+      ],
+      "title": "AllowDeadSpeakersType"
+    },
+    "NextNodeIDType": {
+      "type": "string",
+      "enum": [
+        "int32",
+        "uint8",
+        "uint32"
+      ],
+      "title": "NextNodeIDType"
+    },
+    "TimelineIDType": {
+      "type": "string",
+      "enum": [
+        "FixedString",
+        "LSString",
+        "guid"
+      ],
+      "title": "TimelineIDType"
+    },
+    "OldTextType": {
+      "type": "string",
+      "enum": [
+        "TranslatedString"
+      ],
+      "title": "OldTextType"
+    }
+  }
+}

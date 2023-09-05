@@ -30,3 +30,8 @@ dist-ssr
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Dialog Jsons
+public/bg3_dialog
+public/dialog_json
+public/data

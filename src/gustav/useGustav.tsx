@@ -1,14 +1,17 @@
 import * as React from "react";
 import { DialogData } from "./types";
+import { DocumentRoot } from "./testtypes";
 
-const DIALOG_URL = "https://waldo.team/bg3_dialog/";
+const DIALOG_URL = "data/bg3_dialog/";
+const DIALOGJSON_URL = "data/bg3_jsons/Base/";
 // const DIALOG_URL = "http://localhost:8080/";
 const DEFAULT_PATH =
-  "Mods/GustavDev/Story/Dialogs/Companions/Minthara_InPartyEND.json";
+  "Mods/GustavDev/Story/Dialogs/Companions/Minthara_InParty.json";
 
 type GustavProviderProps = {
   children: React.ReactNode;
 };
+
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -17,16 +20,21 @@ function useGustavState() {
     urlParams.get("path") ?? DEFAULT_PATH
   );
   const [dialogData, setDialogData] = React.useState<DialogData>();
+  const [documentRoot, setdocumentRoot] = React.useState<DocumentRoot>();
 
   React.useEffect(() => {
     if (path !== undefined) {
       fetch(DIALOG_URL + path)
         .then((response) => response.json())
         .then((data) => setDialogData(data));
+      fetch(DIALOGJSON_URL + path)
+        .then((response2) => response2.json())
+        .then((data2) => setdocumentRoot(data2));
     }
   }, [path]);
 
   return {
+    documentRoot,
     dialogData,
     path,
     setPath,
