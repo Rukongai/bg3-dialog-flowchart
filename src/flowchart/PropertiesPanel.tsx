@@ -1,6 +1,6 @@
 import { stringifyRuleGroup } from "@/gustav/utils";
 import { CopyIcon, PhoneIcon } from "@chakra-ui/icons";
-import { Center, Divider, HStack, Text, VStack, useColorModeValue } from "@chakra-ui/react";
+import { Center, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 import type * as Gustav from "@gustav/types";
 import { useAudio } from "@gustav/useAudio";
 import { useRef, useState } from "react";
