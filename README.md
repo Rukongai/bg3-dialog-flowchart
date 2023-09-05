@@ -12,4 +12,5 @@ Forked off of Akintos's amazing work. Mutilating and sinning against their code 
 - Keyword search
 
 # Dreams
--If I can figure enough out, I would like to add json forms functionality to this so that dialog trees could be generated or edited
+- If I can figure enough out, I would like to add json forms functionality to this so that dialog trees could be generated or edited
+- From there, it'd be great to be able to actually use the node map to connect and build trees
